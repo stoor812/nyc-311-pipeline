@@ -1,4 +1,3 @@
-```markdown
 # NYC 311 Service Request Pipeline
 
 A production-style data engineering pipeline that ingests, transforms, validates, and loads NYC 311 service request data into PostgreSQL.
@@ -122,4 +121,3 @@ nyc-311-pipeline/
 - **Upsert over replace** — using `ON CONFLICT DO UPDATE` means the pipeline is safe to run repeatedly without duplicating or wiping data
 - **Validation as a pipeline gate** — critical failures raise and stop the pipeline before bad data reaches the database; warnings log but allow the run to continue
 - **Functions over scripts** — structuring each phase as importable functions rather than top-level scripts makes the code testable and composable through the CLI
-```
