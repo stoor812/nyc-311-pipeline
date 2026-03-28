@@ -48,11 +48,14 @@ def run(limit):
     # validate
     log.info("Validating data...")
     try:
-        validate(df)
-        log.info("Validation passed")
-    except ValueError as e:
+        result = validate(df)
+        log.info(f"Validation passed — {result['rows']} rows, "
+                 f"{result['lat_warnings']} lat warnings, "
+                 f"{result['lon_warnings']} lon warnings")
+    except Exception as e:
         log.error(f"Validation failed: {e}")
         raise SystemExit(1)
+
 
     # load
     try:
